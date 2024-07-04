@@ -6,11 +6,12 @@
 use stm32h7xx_hal::{pac, prelude::*};
 
 // release profile
-#[cfg(not(debug_assertions))]
+// #[cfg(not(debug_assertions))]
 extern crate panic_halt;
 
 // use core::panic::PanicInfo;
 
+/*
 macro_rules! example_power {
   ($pwr:ident) => {{
       cfg_if::cfg_if! {
@@ -26,6 +27,7 @@ macro_rules! example_power {
       }
   }};
 }
+*/
 
 #[cortex_m_rt::entry]
 // #[entry]
@@ -35,7 +37,8 @@ fn main() -> ! {
 
     // Constrain and Freeze power
     let pwr = dp.PWR.constrain();
-    let pwrcfg = example_power!(pwr).freeze();
+    let pwrcfg =  pwr.freeze();
+                                      // example_power!(pwr).freeze();
 
     // Constrain and Freeze clock
 
