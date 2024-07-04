@@ -22,3 +22,7 @@ in one console window open openocd
 ```
 openocd -f openocd.cfg
 ```
+in second window upload code into microcontroller
+```
+arm-none-eabi-gdb -x openocd.gdb
+```
