@@ -12,17 +12,19 @@ extern crate panic_halt;
 // use core::panic::PanicInfo;
 
 macro_rules! example_power {
-    ($pwr:ident) => {{
-        cfg_if::cfg_if! {
-            if #[cfg(all(feature = "smps", feature = "example-smps"))] {
-                $pwr.smps()
-            } else if #[cfg(all(feature = "smps", feature = "example-ldo"))] {
-                $pwr.ldo()
-            } else {
-                $pwr
-            }
+  ($pwr:ident) => {{
+      cfg_if::cfg_if! {
+        if #[cfg(all(feature = "smps", feature = "example-smps"))] {
+          $pwr.smps()
         }
-    }};
+        else if #[cfg(all(feature = "smps", feature = "example-ldo"))] {
+          $pwr.ldo()
+        }
+        else {
+          $pwr
+        }
+      }
+  }};
 }
 
 #[cortex_m_rt::entry]
