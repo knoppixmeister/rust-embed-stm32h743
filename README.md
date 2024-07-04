@@ -1,2 +1,2 @@
-Rust embedded example for STM32 H743 microcontroller
+# Rust embedded example for STM32 H743 microcontroller
 
